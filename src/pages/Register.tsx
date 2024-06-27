@@ -1,14 +1,24 @@
+import bgRegister1 from "../assets/images/register_bg.webp";
+import bgRegister2 from "../assets/images/register_bg_small.webp";
+import coffeeShopIcon from "../assets/icons/header/coffee_shop.svg";
+import fullname from "../assets/icons/register-login/fullname.svg";
+import emailIcon from "../assets/icons/register-login/email.svg";
+import passwordIcon from "../assets/icons/register-login/password.svg";
+import facebookBtn from "../assets/icons/register-login/facebook-btn.svg";
+import googleBtn from "../assets/icons/register-login/google-btn.svg";
+import { Link } from "react-router-dom";
+
 function Register() {
   return (
     <div className="bg-gray-500 flex px-custom">
       <img
-        src="../assets/images/register_bg.webp"
+        src={bgRegister1}
         loading="lazy"
         alt="register-bg"
         className="h-screen max-h-[1080px] min-426-max-1080:hidden screen-max-425:hidden"
       />
       <img
-        src="../assets/images/register_bg_small.webp"
+        src={bgRegister2}
         loading="lazy"
         alt="register-bg"
         className="hidden h-screen max-h-[1080px] lg:block screen-1081:hidden"
@@ -16,20 +26,15 @@ function Register() {
       <div className="bg-white flex justify-center items-center w-screen h-screen max-h-[1080px]">
         <main className="flex flex-col w-full h-full max-h-[600px] px-10 py-4">
           <header className="flex items-start mb-2">
-            <a href="../index.html">
+            <Link to="/" className="mr-4">
               <img
-                src="../assets/icons/header/coffee_shop.svg"
+                src={coffeeShopIcon}
                 width="28"
                 height="26"
                 alt="coffee-shop-icon"
-                className="mr-4"
               />
-            </a>
-            <a href="../index.html" className="no-underline text-black">
-              <p className="font-sacramento text-2xl font-normal text-[#8E6447]">
-                Coffee Shop
-              </p>
-            </a>
+            </Link>
+            <Link to="/" className="text-2xl font-sacramento text-[#8E6447]">Coffee Shop</Link>
           </header>
           <section className="flex flex-col justify-between flex-grow">
             <p className="text-[#8E6447] font-semibold text-xl mb-2">Register</p>
@@ -42,7 +47,7 @@ function Register() {
               </label>
               <div className="flex items-center border border-[#DEDEDE] rounded-lg mb-2">
                 <img
-                  src="../assets/icons/register-login/fullname.svg"
+                  src={fullname}
                   width="14.34"
                   height="18.41"
                   alt="fullname-icon"
@@ -60,7 +65,7 @@ function Register() {
               </label>
               <div className="flex items-center border border-[#DEDEDE] rounded-lg mb-2">
                 <img
-                  src="../assets/icons/register-login/email.svg"
+                  src={emailIcon}
                   width="16"
                   height="12"
                   alt="email-icon"
@@ -78,7 +83,7 @@ function Register() {
               </label>
               <div className="flex items-center border border-[#DEDEDE] rounded-lg mb-2">
                 <img
-                  src="../assets/icons/register-login/password.svg"
+                  src={passwordIcon}
                   width="12.33"
                   height="12.33"
                   alt="password-icon"
@@ -96,7 +101,7 @@ function Register() {
               </label>
               <div className="flex items-center border border-[#DEDEDE] rounded-lg mb-2">
                 <img
-                  src="../assets/icons/register-login/password.svg"
+                  src={passwordIcon}
                   width="12.33"
                   height="12.33"
                   alt="password-icon"
@@ -119,15 +124,13 @@ function Register() {
           </section>
           <section className="flex flex-col justify-between items-center mt-4">
             <p className="text-base font-normal">
-              Have An Account?{' '}
-              <a href="./login.html" className="font-bold text-blue-700">
-                Login
-              </a>
+              Have An Account?{' '}              
+              <Link to="/login" className="font-bold text-blue-700">Login</Link>
             </p>
             <div className="flex justify-between screen-max-425:justify-around w-full">
               <div className="flex justify-center items-center w-[49%] p-2 rounded-md shadow-sm cursor-pointer screen-max-425:w-10 screen-max-425:h-10 screen-max-425:items-center">
                 <img
-                  src="../assets/icons/register-login/facebook-btn.svg"
+                  src={facebookBtn}
                   width="20"
                   height="19.88"
                   alt="facebook-icon"
@@ -137,7 +140,7 @@ function Register() {
               </div>
               <div className="flex justify-center items-center w-[49%] p-2 rounded-md shadow-sm cursor-pointer screen-max-425:w-10 screen-max-425:h-10 screen-max-425:items-center">
                 <img
-                  src="../assets/icons/register-login/google-btn.svg"
+                  src={googleBtn}
                   width="24"
                   height="24"
                   alt="google-icon"
