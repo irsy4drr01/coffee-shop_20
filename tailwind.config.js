@@ -26,7 +26,9 @@ const tailwindConfig = {
         '2xl':	'1536px',
         'screen-1080': '1080px',
         'screen-1081': '1081px',
-        'screen-426': '426px',
+        'screen-426': '426px',  
+        'screen-428': '428px',
+        'screen-450': '450px',
         'screen-600': '600px',
         'screen-max-425': {'raw':'(max-width: 425px)'},
         'screen-max-600': {'raw':'(max-width: 600px)'},
@@ -42,6 +44,9 @@ const tailwindConfig = {
       gridTemplateRows: {
         '8-custom': 'repeat(8, minmax(0, auto))',
       },
+      margin: {
+        '5p': '5%',
+      }
     },
   },
   plugins: [],

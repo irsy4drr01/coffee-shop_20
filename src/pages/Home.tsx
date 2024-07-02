@@ -1,14 +1,15 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
-    <div className="p-5">
-        <Link to="/"><p className="mb-3">HOME</p></Link>
-        <div className="flex flex-col">
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>            
-        </div>        
-    </div>    
+    <>
+    <Header />
+    
+    <Footer />
+    </>
   );
 }
 
