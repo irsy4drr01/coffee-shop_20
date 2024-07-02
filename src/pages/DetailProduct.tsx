@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
-// icon
+// img
 import productImg1 from '../assets/images/product/product-img-1.webp';
 import productImg2 from '../assets/images/product/product-img-2.webp';
 import productImg3 from '../assets/images/product/product-img-3.webp';
 import productImg4 from '../assets/images/product/product-img-4.webp';
 import recomendationImg from "../assets/images/product/recomendation_img.webp";
 
-// img
-import starIcon from '../assets/icons/product/star.svg';
+// icon
 import thumbsUpIcon from '../assets/icons/product/ThumbsUp.svg';
 import ShoppingCartOrange from '../assets/icons/product/ShoppingCartOrange.svg';
 import arrowRight from "../assets/icons/arrow/arrow-right.svg";
@@ -17,6 +16,7 @@ import arrowRight from "../assets/icons/arrow/arrow-right.svg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductItem from "../components/ProductItem";
+import StarsRating from "../components/StarsRating";
 
 function DetailProduct() {
   return (
@@ -61,36 +61,15 @@ function DetailProduct() {
                     <p className="text-orangecustom text-[15px] md:text-2xl md:mb-5">
                         <span className="line-through text-redcustom text-[10px] md:text-lg">
                             IDR 20.000
-                        </span>
+                        </span>{' '}
                         IDR 10.000
                     </p>
                     <div className="flex justify-between w-[120px] md:w-40 md:mb-5">
-                        <img
-                            className="md:size-5"
-                            src={starIcon}
-                            alt="star-1"
-                        />
-                        <img
-                            className="md:size-5"
-                            src={starIcon}
-                            alt="star-2"
-                        />
-                        <img
-                            className="md:size-5"
-                            src={starIcon}
-                            alt="star-3"
-                        />
-                        <img
-                            className="md:size-5"
-                            src={starIcon}
-                            alt="star-4"
-                        />
-                        <img
-                            className="md:size-5"
-                            src={starIcon}
-                            alt="star-5"
-                        />
-                        <p className="md:text-base">5.0</p>
+                        <StarsRating
+                            imgClassName="md:size-5"
+                            rating={4.5}
+                            ratingClassName="md:text-base"
+                        />                        
                     </div>
                     <div className="flex items-center md:mb-5">
                         <p className="text-[12px] md:text-xl w-[100px] screen-450:w-fit mr-1">
