@@ -20,7 +20,7 @@ function Login() {
         loading="lazy"
         alt="register-bg"
         id="bg1"
-        className="h-screen bg-black max-h-[1080px] min-426-max-1080:hidden screen-max-425:hidden"
+        className="h-screen max-h-[1080px] min-426-max-1080:hidden screen-max-425:hidden"
       />
       <img
         src={loginBg2}
