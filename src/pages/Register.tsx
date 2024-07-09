@@ -75,6 +75,7 @@ function Register() {
                   type="text"
                   placeholder="Enter Your Email"
                   id="email"
+                  autoComplete="username"
                   className="flex-1 my-2.5 ml-2.5 border-none focus:outline-none placeholder:text-sm"
                 />
               </div>
@@ -93,6 +94,7 @@ function Register() {
                   type="password"
                   placeholder="Enter Your Password"
                   id="password"
+                  autoComplete="current-password"
                   className="flex-1 my-2.5 ml-2.5 border-none focus:outline-none placeholder:text-sm"
                 />
               </div>
@@ -111,6 +113,7 @@ function Register() {
                   type="password"
                   placeholder="Enter Your Password Again"
                   id="confirm-password"
+                  autoComplete="current-password"
                   className="flex-1 my-2.5 ml-2.5 border-none focus:outline-none placeholder:text-sm"
                 />
               </div>
