@@ -5,14 +5,68 @@ import emailIcon from "../assets/icons/register-login/email.svg";
 import passwordIcon from "../assets/icons/register-login/password.svg";
 import facebookBtn from "../assets/icons/register-login/facebook-btn.svg";
 import googleBtn from "../assets/icons/register-login/google-btn.svg";
+
+import { url } from "../config/config";
+
 import { Link } from "react-router-dom";
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
+import { useState } from "react";
+
+interface IUser {
+  email: string;
+  password: string;
+}
+
+interface ILoginResponse {
+  msg: string;
+  err?: string;
+  data: IUser[];
+}
 
 function Login() {
-  const loginUser = () => {
-    const url = "http://localhost:8000/users/account"
-    axios.post(url)
+  const [user, setUser] = useState<IUser>({ email: "", password: "" });
+  const [isResponse, setIsResponse] = useState<boolean>(false);
+  const [response, setResponse] = useState<string>("");
+
+  const loginUser = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsResponse(false);
+    try {
+      const response: AxiosResponse<ILoginResponse> = await axios.post(`${url}/users/account`, user);
+      console.log(response.data.data);
+      console.log(response.data.msg);
+      setResponse(response.data.msg);
+      setIsResponse(true);
+    } catch (error) {
+      if (axios.isAxiosError(error) && error.response) {
+        const axiosError = error as AxiosError<ILoginResponse>;
+        if (axiosError.response) {
+          console.log(axiosError.response.data.msg);
+          console.log(axiosError.response.data.err);
+          setResponse(axiosError.response.data.err || "An error occurred");
+          setIsResponse(true);
+          return;
+        } else {
+          console.error("No response from server:", axiosError.message);
+          setResponse("No response from server");
+          setIsResponse(true);
+        }
+        return;
+      }
+      console.error("Unexpected error:", error);
+      setResponse("An unexpected error occurred");
+      setIsResponse(true);
+    }
   }
+
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { id, value } = e.target;
+    setUser((prevUser) => ({
+      ...prevUser,
+      [id]: value,
+    }));
+  }
+
   return (
     <div className="bg-white flex px-[calc((100vw-1440px)/2)]">
       <img
@@ -56,7 +110,7 @@ function Login() {
             >
               Fill out the form correctly
             </p>
-            <form action="">
+            <form onSubmit={loginUser}>
               <label
                 htmlFor="email"
                 className="text-lg font-semibold text-[#0B132A]"
@@ -75,6 +129,9 @@ function Login() {
                   type="text"
                   placeholder="Enter Your Email"
                   id="email"
+                  autoComplete="username"
+                  value={user.email}
+                  onChange={onChangeHandler}
                   className="flex-1 border-none focus:outline-none ml-2 min-426-max-768:mb-[10px] screen-max-425:mb-[15px]"
                 />
               </div>
@@ -96,12 +153,16 @@ function Login() {
                   type="password"
                   placeholder="Enter Your Password"
                   id="password"
+                  autoComplete="current-password"
+                  value={user.password}
+                  onChange={onChangeHandler}
                   className="flex-1 border-none focus:outline-none ml-2 min-426-max-768:mb-[10px] screen-max-425:mb-[15px]"
                 />
               </div>
-              <button onClick={loginUser} className="w-full bg-[#FF8906] rounded-md border-none h-10 text-lg font-medium text-[#0B132A] hover:bg-[#fca23c] hover:font-bold cursor-pointer">
+              <button className="w-full bg-[#FF8906] rounded-md border-none h-10 text-lg font-medium text-[#0B132A] hover:bg-[#fca23c] hover:font-bold cursor-pointer">
                 LOGIN
               </button>
+              {isResponse && <p className="text-xl text-redcustom text-center font-extrabold">{response}</p>}
             </form>
           </section>
           <section className="flex flex-col justify-between items-center mt-4">
@@ -135,7 +196,7 @@ function Login() {
         </main>
       </div>
     </div>
-  );
+  )
 }
 
 export default Login;
