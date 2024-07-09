@@ -10,11 +10,12 @@ interface ProductItemProps {
   discountedPrice: number;
   productImage: string;
   rating: number;
-  imgClassName: string;
+  imgStarClassName: string;
+  flashSaleAbsoluteHidden?: string;
 }
 
-function ProductItem(props: ProductItemProps) {
-    const { name, description, originalPrice, discountedPrice, productImage, rating, imgClassName } = props;
+function ProductItem(props: ProductItemProps): JSX.Element {
+    const { name, description, originalPrice, discountedPrice, productImage, rating, imgStarClassName, flashSaleAbsoluteHidden } = props;
 
     return (
         <>
@@ -23,13 +24,13 @@ function ProductItem(props: ProductItemProps) {
                 <p className="text-xs md:text-xl font-semibold mb-1 md:mb-3">
                     {name}
                 </p>
-                <p className="text-[10px] md:text-xl text-justify mb-1 md:mb-3">
+                <p className="text-[10px] md:text-xl mb-1 md:mb-3">
                     {description}
                 </p>
                 <div className="flex justify-between w-[100px] md:w-40 mb-1">
                    <StarsRating
                         rating={rating}
-                        imgClassName={imgClassName}
+                        imgStarClassName={imgStarClassName}
                         ratingClassName="text-[10px] md:text-base leading-none"
                     />
                 </div>
@@ -54,7 +55,7 @@ function ProductItem(props: ProductItemProps) {
                 </div>
             </div>
             <div className="relative z-0">
-                <p className="absolute mt-1 ml-1 text-[8px] text-white font-semibold bg-redcustom px-2 py-0.5 rounded-full">
+                <p className={`${flashSaleAbsoluteHidden} mt-1 ml-1 text-[8px] text-white font-semibold bg-redcustom px-2 py-0.5 rounded-full`}>
                     FLASH SALE!
                 </p>
                 <img className="w-full h-auto" src={productImage} alt="recommendation-img" />

@@ -2,12 +2,14 @@ import { Link } from "react-router-dom";
 import coffeeShopWhite from '../assets/icons/header/coffee_shop_white.svg';
 import searchIcon from '../assets/icons/header/Search.svg';
 import shoppingCart from '../assets/icons/header/ShoppingCart.svg';
+import hamburgerMenu from "../assets/icons/hamburger-menu.svg";
 
-function Header() {
+
+function Header({ bgHeader }: {bgHeader?: string}) {
   return (
     <div>
       <header 
-        className="z-10 fixed bg-black text-white grid grid-cols-3 sm:grid-cols-12 h-[50px] sm:h-[60px] lg:h-[76px] w-screen max-w-screen-2xl px-[10px] sm:pl-5 lg:px-5 xl:px-0"
+        className={`z-10 fixed bg-black ${bgHeader} text-white grid grid-cols-3 sm:grid-cols-12 h-[50px] sm:h-[60px] lg:h-[76px] w-screen max-w-screen-2xl px-[10px] sm:pl-5 lg:px-5 xl:px-0`}
       >
         <div 
           className="flex justify-start md:justify-center lg:justify-end xl:justify-start items-center col-start-1 lg:col-start-2 col-span-2 sm:col-span-3 lg:col-span-2"
@@ -68,17 +70,9 @@ function Header() {
           </button>
           <button 
             id="menu-button" 
-            className="w-[30px] h-[30px] flex sm:hidden flex-col justify-evenly items-center hover:bg-gray-700 rounded-[5px]"
+            className="w-[35px] h-[30px] flex sm:hidden flex-col justify-evenly items-end hover:bg-gray-700 rounded-[5px]"
           >
-            <div 
-              className="w-5 h-[3px] bg-white rounded-md"
-            ></div>
-            <div 
-              className="w-5 h-[3px] bg-white rounded-md"
-            ></div>
-            <div 
-              className="w-5 h-[3px] bg-white rounded-md"
-            ></div>
+            <img src={hamburgerMenu} alt="hamburger Menu" />
           </button>
           <Link 
             to="/login" 
