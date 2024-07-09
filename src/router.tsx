@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DetailProduct from "./pages/DetailProduct";
 import DetailOrder from "./pages/DetailOrder";
+import Layout from "./layout/Layout";
 
 function Error() {
     return (
@@ -32,33 +33,39 @@ function NotFound() {
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
-        errorElement: <Error />
-    },
-    {
-        path: "/login",
-        element: <Login />,
-        errorElement: <Error />
-    },
-    {
-        path: "/register",
-        element: <Register />,
-        errorElement: <Error />
-    },    
-    {
-        path: "/detail-product",
-        element: <DetailProduct />,
-        errorElement: <Error />
-    },
-    {
-        path: "/detail-order",
-        element: <DetailOrder />,
-        errorElement: <Error />
-    },
-    {
-        path: "*",
-        element: <NotFound />,        
-    },
+        element: <Layout />,
+        children: [
+            {
+                path: "/",
+                element: <Home />,
+                errorElement: <Error />
+            },
+            {
+                path: "login",
+                element: <Login />,
+                errorElement: <Error />
+            },
+            {
+                path: "register",
+                element: <Register />,
+                errorElement: <Error />
+            },
+            {
+                path: "detail-product",
+                element: <DetailProduct />,
+                errorElement: <Error />
+            },
+            {
+                path: "detail-order",
+                element: <DetailOrder />,
+                errorElement: <Error />
+            },
+            {
+                path: "*",
+                element: <NotFound />,
+            }
+        ]
+    }
 ]);
 
 export default router;
