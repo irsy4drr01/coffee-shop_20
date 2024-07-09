@@ -13,16 +13,16 @@ import ShoppingCartOrange from '../assets/icons/product/ShoppingCartOrange.svg';
 import arrowRight from "../assets/icons/arrow/arrow-right.svg";
 
 // component
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+// import Header from "../components/Header";
+// import Footer from "../components/Footer";
 import ProductItem from "../components/ProductItem";
 import StarsRating from "../components/StarsRating";
 
 function DetailProduct() {
   return (
     <>
-    <body className="2xl:pl-custom 2xl:pr-custom bg-[#cecece]">
-        <Header />
+    {/* <body className="2xl:pl-custom 2xl:pr-custom bg-[#cecece]"> */}
+        {/* <Header /> */}
         <main className="bg-white">
             <section className="pt-[60px] sm:pt-[70px] lg:pt-[160px] pb-12 s:pb-0 px-3 lg:px-[120px] grid grid-cols-2 s:grid-rows-8-custom gap-y-3">
                 <div className="col-start-1 pr-3 s:col-start-1 s:row-span-4">
@@ -66,7 +66,7 @@ function DetailProduct() {
                     </p>
                     <div className="flex justify-between w-[120px] md:w-40 md:mb-5">
                         <StarsRating
-                            imgClassName="md:size-5"
+                            imgStarClassName="md:size-5"
                             rating={4.5}
                             ratingClassName="md:text-base"
                         />                        
@@ -207,7 +207,8 @@ function DetailProduct() {
                             discountedPrice={10000}
                             productImage={recomendationImg}
                             rating={4.0}
-                            imgClassName="w-[10%]"
+                            imgStarClassName="w-[10%]"
+                            flashSaleAbsoluteHidden="absolute"
                         />
                     </div>
                     <div className="min-w-[135px]">
@@ -218,7 +219,8 @@ function DetailProduct() {
                             discountedPrice={10000}
                             productImage={recomendationImg}
                             rating={4.5}
-                            imgClassName="w-[10%]"
+                            imgStarClassName="w-[10%]"
+                            flashSaleAbsoluteHidden="absolute"
                         />
                     </div>
                     <div className="hidden 2s:min-w-[135px] 2s:flex">
@@ -229,7 +231,8 @@ function DetailProduct() {
                             discountedPrice={10000}
                             productImage={recomendationImg}
                             rating={5.0}
-                            imgClassName="w-[10%]"
+                            imgStarClassName="w-[10%]"
+                            flashSaleAbsoluteHidden="absolute"
                         />
                     </div>
                 </div>
@@ -249,8 +252,8 @@ function DetailProduct() {
                 </div>
             </section>
         </main>
-        <Footer />
-    </body>    
+        {/* <Footer /> */}
+    {/* </body>     */}
     </>
   );
 }
